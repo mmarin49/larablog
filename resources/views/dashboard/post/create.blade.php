@@ -29,7 +29,7 @@
             <input class="form-control" type="text" name="url_clean" id="url_clean">    
         </div>
         <div class="form-group">
-            <label for="content">Contenido</label>
+            <label for="content">Contenidos</label>
             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
         </div>
         <input type="submit" value="Enviar"  class="btn btn-primary">
