@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostPost;
 
 class PostController extends Controller
 {
@@ -33,18 +35,20 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostPost $request)
     {
-        
-        $request->validate([
-            'title'=>'required|min:5|max:500',
-            //'url_clean'=>'required|min:5|max:500',
-            'content'=>'required|min:5'
 
-        ]);
+//        $request->validate([
+//            'title'=>'required|min:5|max:500',
+            //'url_clean'=>'required|min:5|max:500',
+//            'content'=>'required|min:5'
+
+//        ]);
+
+        Post::create($request->validated()); 
         echo "Hola store: ".$request->input('title', 1);
-        //dd($request->all());
-        echo "Hola store: ".$request->title;
+        return back()->with('status','Post creado correctamente');
+
     }
 
     /**

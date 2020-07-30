@@ -1,19 +1,7 @@
-<link rel="stylesheet" href="{{ asset("css/app.css") }}">
-<script src="{{ asset("js/app.js") }}"></script>
+@extends('dashboard.master')
+@section('content')
 
-
-
-<div class="container">
-
-
-    @if ($errors->any())
-        @foreach ($errors->all() as $error)
-            <div class="alert alert-danger">
-                {{ $error }}
-            </div>
-        @endforeach
-    @endif
-
+@include('dashboard.partials.validation-error')
     <form action="{{ route("post.store")}}" method="POST">
         @csrf
         <div class="form-groups">
@@ -35,4 +23,7 @@
         <input type="submit" value="Enviar"  class="btn btn-primary">
     </form>
 
-</div>
+@endsection
+
+
+
