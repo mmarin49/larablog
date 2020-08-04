@@ -16,7 +16,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        echo "hola index";
+        $posts = Post::orderBy('created_at','desc')->get();
+
+        //dd ($posts);
+        return view('dashboard.post.index',['posts'=>$posts]);
     }
 
     /**
@@ -26,7 +29,9 @@ class PostController extends Controller
      */
     public function create()
     {
+        
         return view('dashboard.post.create');
+
     }
 
     /**
