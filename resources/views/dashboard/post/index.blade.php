@@ -46,12 +46,14 @@
                     {{$post->updated_at->format('d-m-Y')}}
                 </td>
                 <td>
-                    
+                <a href="{{route('post.show',$post->id)}}" class="btn btn-primary">Ver</a>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+
+    {{$posts->links()}}
 @endsection
 
 
