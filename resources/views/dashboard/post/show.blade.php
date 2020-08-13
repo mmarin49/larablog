@@ -6,9 +6,6 @@
         <div class="form-groups">
             <label for="title">Título</label>
         <input readonly class="form-control" type="text" name="title" id="title" value="{{$post->title}}">
-            @error('title')
-                <small class="text-danger">{{ $message }}</small>
-            @enderror
             
         </div> 
         <div class="form-groups">
