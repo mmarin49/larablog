@@ -1,51 +1,23 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>La meva primera pàgina</title>
-</head>
-<body>
-    <h1>Hola mundo laravel- {!!"Hola mundo $nombre $apellido"!!} </h1>
-    
-    <ul>
-        <?php foreach ($posts as $key =>$post): ?>
-            <li>{{$post}}</li>
-        <?php endforeach; ?>
+@extends('layouts.app')
 
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
-        @isset($posts2)
-            isset
-        @endisset
-        @empty($posts2)
-            empty  
-        @endempty
-        @forelse ($posts as $post)
-
-            <?php //dd($loop) ?>
-
-
-                
-           
-            
-            <li>
-                @if ($loop->first)
-                Primer:
-                
-                @elseif ($loop->last)
-                Últim:
-
-                @else 
-                Medio:
-                @endif
-                {{$post}}
-            </li>
-        @empty
-            <li>Buit</li>
-        @endforelse
-            
-
-    </ul>
-</body>
-</html>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    {{auth()->user()->name}}
+                    {{ __('estás registrado/a!') }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
